@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珂码在前进</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.4.0/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                test1();
+            });
+
+            $("#btn2").click(function(){
+                $.test2();
+            });
+
+
+        });
+
+        function test1(){
+//alert("Text1: " + $("#test").text());
+            $.ajax({
+                url:'/msg/getAllJson',
+                type:'get',
+                dataType:'json',
+                success:function(data){
+                    $("#tabletest").find('tr').remove();
+                    tr='<td>id</td><td>Message</td>'
+                    $("#tabletest").append('<tr>'+tr+'</tr>')
+//方法中传入的参数data为后台获取的数据
+                    for(i in data) //data指的是数组，i为数组的索引
+                    {
+                        var tr;
+                        tr='<td>'+data[i].id+'</td>'+'<td>'+data[i].message +'</td>'
+                        $("#tabletest").append('<tr>'+tr+'</tr>')
+                    }
+                }
+            });
+        }
+
+        $.test2 = function() {
+//alert("Text2: " + $("#id").val());
+            $.ajax({
+                url:'/msg/getOne',
+                type:'get',
+                dataType:'json', //返回数据类型
+//data:{id:parseInt($("#id").val())},
+//data:{"id":1},
+                contentType: 'application/json', // 请求传递的参数格式
+                data:{"id":$("#id").val()}, // 请求传递的参数
+                success:function(data){
+//alert("success");
+                    $("#tabletest").find('tr').remove();
+                    tr='<td>id</td><td>Message</td>'
+                    $("#tabletest").append('<tr>'+tr+'</tr>')
+//方法中传入的参数data为后台获取的数据
+                    var tr;
+                    tr='<td>'+data.id+'</td>'+'<td>'+data.message +'</td>'
+                    $("#tabletest").append('<tr>'+tr+'</tr>')
+                },
+                error:function(XMLHttpRequest, textStatus, errorThrown){
+                    alert("没有查询到数据！");
+                    $("#tabletest").find('tr').remove();
+                }
+            });
+        }
+
+    </script>
+    <style type="text/css">
+        .center{
+            margin: auto;
+            text-align:center;
+            font-size: 24px;
+            width: 60%;
+            background: lightblue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="center">
+    <p id="test">Springboot整合MyBatis通过ajax查询MySQL数据库数据</b></p>
+    <button id="btn1">显示所有数据</button>
+    <button id="btn2">查询</button>
+    <input id="id" name="id" type="text" placeholder="请输入id值"/>
+    <br>
+    <table class="table table-bordered" id='tabletest'>
+    </table>
+</div>
+</body>
+</html>

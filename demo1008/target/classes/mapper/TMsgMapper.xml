@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xina.demo1008.mapper.TMsgMapper">
+    <select id="findById" resultType="com.xina.demo1008.entity.TMsg">
+        SELECT id,message from t_msg WHERE id = #{id}
+    </select>
+
+    <select id="findByMessage" resultType="com.xina.demo1008.entity.TMsg">
+        SELECT id,message from t_msg WHERE Message = #{Message}
+    </select>
+
+    <select id="findTMsgAll" resultType="com.xina.demo1008.entity.TMsg">
+        select * from t_msg
+    </select>
+</mapper>

@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.xina.demo1008.Demo1008ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.115 s <<< FAILURE! - in com.xina.demo1008.Demo1008ApplicationTests
+contextLoads  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'TMsgController': Unsatisfied dependency expressed through field 'tMsgService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'TMsgServiceImpl': Unsatisfied dependency expressed through field 'tMsgMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.xina.demo1008.mapper.TMsgMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'TMsgServiceImpl': Unsatisfied dependency expressed through field 'tMsgMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.xina.demo1008.mapper.TMsgMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.xina.demo1008.mapper.TMsgMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+

@@ -1,0 +1,7 @@
+com/xina/demo1008/service/impl/TMsgServiceImpl.class
+com/xina/demo1008/entity/TMsg.class
+com/xina/demo1008/mapper/TMsgMapper.class
+com/xina/demo1008/dao/TMsgDAO.class
+com/xina/demo1008/Demo1008Application.class
+com/xina/demo1008/service/TMsgService.class
+com/xina/demo1008/controller/TMsgController.class
